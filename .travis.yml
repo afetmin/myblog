@@ -3,13 +3,13 @@ node_js: node
 
 # 缓存node_modules文件夹，节省部署的时间
 cache:
-directories:
-- node_modules
+  directories:
+  - node_modules
 
 # 源码所在分支
 branches:
-only:
-- master
+  only:
+  - master
 
 # 安装依赖
 install:
@@ -25,14 +25,14 @@ install:
 # 执行的命令
 script:
 - hexo clean
-- hexo generate --deploy
+- hexo generate
 
 # 部署
 deploy:
-provider: pages
-skip-cleanup: true
-github-token: $GITHUB_TAKEN # Set in travis-ci.org dashboard, marked secure
-keep-history: true
-local-dir: public
-repo: afetmin/afetmin.github.io # 你的GitHub Page仓库地址
-target-branch: master
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TAKEN # Set in travis-ci.org dashboard, marked secure
+  keep-history: true
+  local-dir: public
+  repo: afetmin/afetmin.github.io # 你的GitHub Page仓库地址
+  target-branch: master
