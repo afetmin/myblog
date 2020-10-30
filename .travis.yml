@@ -30,9 +30,9 @@ script:
 # 部署
 deploy:
   provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TAKEN # Set in travis-ci.org dashboard, marked secure
-  keep-history: true
-  local-dir: public
+  cleanup: true
+  github_token: $GITHUB_TAKEN # Set in travis-ci.org dashboard, marked secure
+  keep_history: true
+  local_dir: public
   repo: afetmin/afetmin.github.io # 你的GitHub Page仓库地址
-  target-branch: master
+  target_branch: master
