@@ -2,11 +2,21 @@
   "name": "hexo-site",
   "version": "0.0.0",
   "private": true,
+  "yuqueConfig": {
+    "postPath": "source/_posts/yuque",
+    "mdNameFormat": "title",
+    "adapter": "hexo",
+    "concurrency": 5,
+    "baseUrl": "https://www.yuque.com/api/v2",
+    "login": "yilun-8cvae",
+    "repo": "buqo5m",
+    "onlyPublished": false
+  },
   "scripts": {
-    "build": "hexo clean && hexo deploy",
-    "clean": "hexo clean",
-    "deploy": "hexo deploy",
-    "server": "hexo server"
+    "sync": "yuque-hexo sync",
+    "clean:yuque": "yuque-hexo clean",
+    "deploy": "npm run sync && hexo clean && hexo g -d",
+    "dev": "hexo clean && hexo server"
   },
   "hexo": {
     "version": "4.2.1"
@@ -24,6 +34,7 @@
     "hexo-server": "^1.0.0"
   },
   "devDependencies": {
-    "hexo-util": "^2.4.0"
+    "hexo-util": "^2.4.0",
+    "yuque-hexo": "^1.6.5"
   }
 }
