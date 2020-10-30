@@ -18,15 +18,14 @@ install:
 
 # 执行的命令
 script:
-- hexo clean
-- hexo generate
+- npm run deploy
 
 # 部署
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TAKEN # Set in travis-ci.org dashboard, marked secure
-  keep_history: true
-  local_dir: public
-  repo: afetmin/afetmin.github.io # 你的GitHub Page仓库地址
-  target_branch: master
+# deploy:
+#   provider: pages
+#   skip_cleanup: true
+#   github_token: $GITHUB_TAKEN # Set in travis-ci.org dashboard, marked secure
+#   keep_history: true
+#   local_dir: public
+#   repo: afetmin/afetmin.github.io # 你的GitHub Page仓库地址
+#   target_branch: master
