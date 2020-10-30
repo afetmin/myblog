@@ -38,4 +38,3 @@ this.$store.dispatch('setBookName',this.bookName)
 // 优雅写法
 this.setBookName(this.bookName)
 ```
-## 再次测试
