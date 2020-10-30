@@ -11,9 +11,7 @@
     "baseUrl": "https://www.yuque.com/api/v2",
     "login": "yilun-8cvae",
     "repo": "buqo5m",
-    "onlyPublished": false,
-    "token":"Vq0isIjKKLuEnPOuMiqJQuVGhSR4TQsZSOBLnbGV"
-
+    "onlyPublished": false
   },
   "scripts": {
     "sync": "yuque-hexo sync",
