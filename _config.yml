@@ -102,4 +102,4 @@ theme: fluid-1.8.0
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/afetmin/afetmin.github.io.git
+  repo: git@github.com:afetmin/afetmin.github.io.git

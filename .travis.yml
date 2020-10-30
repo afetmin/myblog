@@ -14,12 +14,6 @@ branches:
 # 安装依赖
 install:
 - npm install hexo-cli -g
-- npm install --save hexo-deployer-git
-- npm install --save-dev hexo-util
-- npm install hexo-generator-searchdb --save
-- npm install hexo-generator-feed --save
-- npm uninstall hexo-generator-index --save
-- npm install hexo-generator-index-pin-top --save
 - npm install
 
 # 执行的命令
@@ -30,7 +24,7 @@ script:
 # 部署
 deploy:
   provider: pages
-  cleanup: true
+  skip_cleanup: true
   github_token: $GITHUB_TAKEN # Set in travis-ci.org dashboard, marked secure
   keep_history: true
   local_dir: public
