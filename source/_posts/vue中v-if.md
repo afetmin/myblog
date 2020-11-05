@@ -28,3 +28,18 @@ categories: vue
 .ctrl ...
 ## 鼠标修饰符
 .right 右键
+
+## transition
+过渡的元素只能是以下之一：
+- 条件渲染 (使用 v-if)
+- 条件展示 (使用 v-show)
+- 动态组件
+- 组件根节点
+
+自定义过渡动画的，记得在css中修改以下的类名：
+- 动画名-enter 进入前效果
+- 动画名-enter-active 进入的过渡时间和函数
+- 动画名-enter-to 进入后效果
+- 动画名-leave 离开前效果
+- 动画名-leave-active 离开的过渡时间和函数
+- 动画名-leave-to 离开后效果
