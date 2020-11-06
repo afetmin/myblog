@@ -2,7 +2,7 @@
 title: vue中v-if
 date: 2020-09-24 09:47:05
 tags: vue
-categories: vue
+categories: 进阶
 ---
 
 ## v-if

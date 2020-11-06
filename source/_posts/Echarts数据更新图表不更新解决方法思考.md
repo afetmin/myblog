@@ -2,7 +2,7 @@
 title: Echarts数据更新图表不更新解决方法思考
 date: 2020-10-26 16:48:33
 tags: vue
-categories: vue
+categories: 进阶
 ---
 ## echart数据更新问题
 在使用vue-echarts组件时，通过watch监听option变化更新数据，用vue调试工具查看数据更新了，series数组内容改变了。

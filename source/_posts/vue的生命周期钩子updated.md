@@ -2,7 +2,7 @@
 title: vue的生命周期钩子updated
 date: 2020-11-03 20:53:05
 tags: vue
-categoris: vue
+categoris: 进阶
 ---
 
 ## 生命周期详细表

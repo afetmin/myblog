@@ -2,7 +2,7 @@
 title: slice的思考
 date: 2020-08-23 09:03:42
 tags: js
-categories: 前端
+categories: 进阶
 ---
 
 ## 关于为何在函数中使用Array.prototype.slice.call而不是直接用slice？

@@ -1,7 +1,7 @@
 ---
 title: vue进阶语法
 date: 2020-05-27 09:54:50
-tags: [vue,进阶]
+tags: vue
 categories: vue
 index_img: /img/vue进阶语法/code.jpg
 banner_img: /img/vue进阶语法/code.jpg
@@ -36,7 +36,7 @@ banner_img: /img/vue进阶语法/code.jpg
             console.log(this.message, e)
           },
           boost() {
-            this.$emit('my_events', 'my params')            
+            this.$emit('my_events', 'my params')
           }
         }
       })
@@ -254,7 +254,7 @@ this.$on(['event1','event2'],this.handleEvents)
                   type: String,
                   default: msg
                 }
-              } 
+              }
             }).$mount('#loading-wrapper')
             return () => {
               document.body.removeChild(document.getElementById('loading-wrapper'))

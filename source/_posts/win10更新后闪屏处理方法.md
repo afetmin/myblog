@@ -1,8 +1,8 @@
 ---
 title: win10更新后闪屏处理方法
 date: 2020-05-30 08:42:00
-tags: [win10,更新]
-categories: win10
+tags: win
+categories: 错误
 index_img: /img/win10更新失败/banner.jpg
 banner_img: /img/win10更新失败/banner.jpg
 ---

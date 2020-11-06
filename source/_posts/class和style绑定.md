@@ -2,7 +2,7 @@
 title: class和style绑定,vue.observable,slot插槽
 date: 2020-07-14 10:33:37
 tags: vue
-categories: vue
+categories: 进阶
 ---
 ## class和style绑定
 ```html

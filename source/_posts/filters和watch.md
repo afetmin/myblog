@@ -2,7 +2,7 @@
 title: filters和watch
 date: 2020-07-14 10:14:11
 tags: vue
-categories: vue
+categories: 进阶
 ---
 ## provide和inject跨组件信息传递
 不用 组件一传给组件二，组件二再传给组件三 ，可以直接组件一传给组件二
