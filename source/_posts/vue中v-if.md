@@ -43,3 +43,6 @@ categories: 进阶
 - 动画名-leave 离开前效果
 - 动画名-leave-active 离开的过渡时间和函数
 - 动画名-leave-to 离开后效果
+
+## vue中.exact效果
+只能是绑定的键才能触发方法，多按shift或者ctrl无法触发
