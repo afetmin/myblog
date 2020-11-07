@@ -18,6 +18,6 @@ categoris: 进阶
 |deactivated	| keep-alive 组件停用时调用。|
 | beforeDestroy	| 实例销毁之前调用。在这一步，实例仍然完全可用。|
 | destroyed	| Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。|
-| 备注 |（除了beforeCreate和created钩子之外，其他钩子均在服务器端渲染期间不被调用。）<font color="aqua">只有updated钩子被调用时候，组件dom才被更新。</font>|
+| 备注 |（除了beforeCreate和created钩子之外，其他钩子均在服务器端渲染期间不被调用。）<font color="#1ABC9C">只有updated钩子被调用时候，组件dom才被更新。</font>|
 
-- 参考： [Vue生命周期总结](https://www.cnblogs.com/goloving/p/8616989.html)
+- 参考： [Vue生命周期](https://www.cnblogs.com/goloving/p/8616989.html)
