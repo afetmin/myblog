@@ -20,4 +20,5 @@ categoris: 进阶
 | destroyed	| Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。|
 | 备注 |（除了beforeCreate和created钩子之外，其他钩子均在服务器端渲染期间不被调用。）<font color="#1ABC9C">只有updated钩子被调用时候，组件dom才被更新。</font>|
 
+可以在updated生命周期内更新页面部分dom，比如样式修改，阅读进度的样式显示。
 - 参考： [Vue生命周期](https://www.cnblogs.com/goloving/p/8616989.html)
