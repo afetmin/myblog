@@ -120,3 +120,11 @@ arr.length = 5; // 又把 length 加回来
 alert( arr[3] ); // undefined：被截断的那些数值并没有回来
 ```
 >所以，清空数组最简单的方法就是：arr.length = 0;
+
+## 关于JSON的转换
+JSON 是语言无关的纯数据规范，因此一些特定于 JavaScript 的对象属性会被 JSON.stringify 跳过。
+
+即：
+- 函数属性（方法）。
+- Symbol 类型的属性。
+- 存储 undefined 的属性。
