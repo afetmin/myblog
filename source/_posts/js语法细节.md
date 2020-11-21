@@ -133,3 +133,51 @@ JSON 是语言无关的纯数据规范，因此一些特定于 JavaScript 的对
 >被赋值给函数的属性，比如 sayHi.counter = 0，不会 在函数内定义一个局部变量 counter。换句话说，属性 counter 和变量 let counter 是毫不相关的两个东西。
 
 >我们可以把函数当作对象，在它里面存储属性，但是这对它的执行没有任何影响。变量不是函数属性，反之亦然。它们之间是平行的。
+
+## 关于this和箭头函数
+箭头函数
+- 没有 this
+- 没有 arguments
+- 不能使用 new 进行调用
+- 它们也没有 super
+
+所以箭头函数里的 ```this``` 的查找与常规变量的搜索方式完全相同：在外部词法环境中查找。
+
+## 关于__proto__和prototype
+>初学者常犯一个普遍的错误，就是不知道 ```__proto__``` 和 [[Prototype]] 的区别。
+请注意，```__proto__``` 与内部的 [[Prototype]] 不一样。```__proto__``` 是 [[Prototype]] 的 getter/setter。稍后，我们将看到在什么情况下理解它们很重要，在建立对 JavaScript 语言的理解时，让我们牢记这一点。
+```__proto__``` 属性有点过时了。它的存在是出于历史的原因，现代编程语言建议我们应该使用函数 Object.getPrototypeOf/Object.setPrototypeOf 来取代 ```__proto__``` 去 get/set 原型。稍后我们将介绍这些函数。
+根据规范，```__proto__``` 必须仅受浏览器环境的支持。但实际上，包括服务端在内的所有环境都支持它，因此我们使用它是非常安全的。
+
+
+重要：[this的值](https://zh.javascript.info/prototype-inheritance#this-de-zhi)
+
+### 设置和直接访问原型的现代方法
+设置和直接访问原型的现代方法有：
+
+- Object.create(proto, [descriptors]) —— 利用给定的 proto 作为 [[Prototype]]（可以是 null）和可选的属性描述来创建一个空对象。
+- Object.getPrototypeOf(obj) —— 返回对象 obj 的 [[Prototype]]（与 ```__proto__``` 的 getter 相同）。
+- Object.setPrototypeOf(obj, proto) —— 将对象 obj 的 [[Prototype]] 设置为 proto（与 ```__proto__``` 的 setter 相同）。
+
+如果要将一个用户生成的键放入一个对象，那么内建的 ```__proto__``` getter/setter 是不安全的。因为用户可能会输入 "```__proto__```" 作为键，这会导致一个 error，虽然我们希望这个问题不会造成什么大影响，但通常会造成不可预料的后果。
+
+因此，我们可以使用 Object.create(null) 创建一个没有 ```__proto__``` 的 “very plain” 对象，或者对此类场景坚持使用 Map 对象就可以了。
+
+此外，Object.create 提供了一种简单的方式来浅拷贝一个对象的所有描述符：
+```js
+let clone = Object.create(Object.getPrototypeOf(obj), Object.getOwnPropertyDescriptors(obj));
+```
+
+此外，我们还明确了 ```__proto__``` 是 [[Prototype]] 的 getter/setter，就像其他方法一样，它位于 Object.prototype。
+
+我们可以通过 Object.create(null) 来创建没有原型的对象。这样的对象被用作 “pure dictionaries”，对于它们而言，使用 "```__proto__```" 作为键是没有问题的。
+
+其他方法：
+
+- Object.keys(obj) / Object.values(obj) / Object.entries(obj) —— 返回一个可枚举的由自身的字符串属性名/值/键值对组成的数组。
+- Object.getOwnPropertySymbols(obj) —— 返回一个由自身所有的 symbol 类型的键组成的数组。
+- Object.getOwnPropertyNames(obj) —— 返回一个由自身所有的字符串键组成的数组。
+- Reflect.ownKeys(obj) —— 返回一个由自身所有键组成的数组。
+- obj.hasOwnProperty(key)：如果 obj 拥有名为 key 的自身的属性（非继承而来的），则返回 true。
+
+所有返回对象属性的方法（如Object.keys 及其他）—— 都返回“自身”的属性。如果我们想继承它们，我们可以使用 for...in。
