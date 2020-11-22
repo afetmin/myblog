@@ -181,3 +181,82 @@ let clone = Object.create(Object.getPrototypeOf(obj), Object.getOwnPropertyDescr
 - obj.hasOwnProperty(key)：如果 obj 拥有名为 key 的自身的属性（非继承而来的），则返回 true。
 
 所有返回对象属性的方法（如Object.keys 及其他）—— 都返回“自身”的属性。如果我们想继承它们，我们可以使用 for...in。
+
+## 关于类继承
+1.想要扩展一个类：class Child extends Parent：
+- 这意味着 Child.prototype.__proto__ 将是 Parent.prototype，所以方法会被继承。
+
+2.重写一个 constructor：
+- 在使用 this 之前，我们必须在 Child 的 constructor 中将父 constructor 调用为 super()。
+
+3.重写一个方法：
+- 我们可以在一个 Child 方法中使用 super.method() 来调用 Parent 方法。
+
+4.内部：
+- 方法在内部的 [[HomeObject]] 属性中记住了它们的类/对象。这就是 super 如何解析父方法的。
+- 因此，将一个带有 super 的方法从一个对象复制到另一个对象是不安全的。
+
+补充：
+
+箭头函数没有自己的 this 或 super，所以它们能融入到就近的上下文中，像透明似的。
+
+## 类检查"instanceof"
+|      | 用于 | 返回值 |
+| ---- | ---- | ---- |
+|type  | 原始数据类型 | string |
+|{}.toString.call|原始数据类型，内建对象，包含Symbol.toStringTag属性的对象| string|
+|instanceof|对象|true/false|
+
+如表所示：{}.toString.call (Object.prototype.toString) 可以检查对象的类型并返回字符串，而不是像toString仅仅返回 ```[Object,Object]```
+```js
+let s = Object.prototype.toString;
+
+alert( s.call(123) ); // [object Number]
+alert( s.call(null) ); // [object Null]
+alert( s.call(alert) ); // [object Function]
+```
+
+## 模块的导入和导出
+- 在声明一个 class/function/… 之前：
+  - export [default] class/function/variable ...
+- 独立的导出：
+  - export {x [as y], ...}.
+- 重新导出：
+  - export {x [as y], ...} from "module"
+  - export * from "module"（不会重新导出默认的导出）。
+  - export {default [as y]} from "module"（重新导出默认的导出）。
+
+导入：
+
+- 模块中命名的导入：
+  - import {x [as y], ...} from "module"
+- 默认的导入：
+  - import x from "module"
+  - import {default as x} from "module"
+- 所有：
+  - import * as obj from "module"
+- 导入模块（它的代码，并运行），但不要将其赋值给变量：
+  - import "module"
+
+
+我们把 import/export 语句放在脚本的顶部或底部，都没关系。
+
+
+## 处理程序选项 “passive”
+addEventListener 的可选项 passive: true 向浏览器发出信号，表明处理程序将不会调用 preventDefault()。
+
+为什么需要这样做？
+
+移动设备上会发生一些事件，例如 touchmove（当用户在屏幕上移动手指时），默认情况下会导致滚动，但是可以使用处理程序的 preventDefault() 来阻止滚动。
+
+因此，当浏览器检测到此类事件时，它必须首先处理所有处理程序，然后如果没有任何地方调用 preventDefault，则页面可以继续滚动。但这可能会导致 UI 中不必要的延迟和“抖动”。
+
+passive: true 选项告诉浏览器，处理程序不会取消滚动。然后浏览器立即滚动页面以提供最大程度的流畅体验，并通过某种方式处理事件。
+
+对于某些浏览器（Firefox，Chrome），默认情况下，touchstart 和 touchmove 事件的 passive 为 true。
+
+## async和defer
+|   |	顺序|	DOMContentLoaded|
+|----|----|----|
+|async	|加载优先顺序。脚本在文档中的顺序不重要 —— 先加载完成的先执行	|不相关。可能在文档加载完成前加载并执行完毕。如果脚本很小或者来自于缓存，同时文档足够长，就会发生这种情况。|
+|defer	|文档顺序（它们在文档中的顺序）	|在文档加载和解析完成之后（如果需要，则会等待），即在 DOMContentLoaded 之前执行。|
