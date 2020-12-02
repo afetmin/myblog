@@ -55,3 +55,7 @@ categories: 进阶
 ## 阻止点击事件
 @click.prevent  阻止默认事件
 @click.stop  阻止冒泡
+
+## vue中created用处
+- 1.可以在这里请求数据
+- 2.当有些数据没必要放入data中监听，但是methods中的方法有需要共用时，可以放在created中，vue不会设置setter和getter。
