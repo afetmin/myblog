@@ -33,7 +33,7 @@ skip_render:
   - "iDlesale/**"
   - "Ebook/**"
   - "dalian/**"
-  - "tools/**"
+  - "poly2path/**"
 
 # Writing
 new_post_name: :title.md # File name of new posts
