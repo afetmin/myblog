@@ -6,7 +6,7 @@
   <meta name="viewport"
     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <title>出去买药</title>
+  <title>Document</title>
   <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
   <link rel="stylesheet" href="assets/css/reset.css">
   <link rel="stylesheet" href="assets/css/style.css">
@@ -18,22 +18,22 @@
     <div class="form-wrapper" v-show="!visible">
       <div>
         <label for="name">姓名：</label>
-        <input type="text" id="name" v-model="name" placeholder="输入你的名字">
+        <input type="text" id="name" v-model.lazy="name" placeholder="输入你的名字">
       </div>
       <div>
         <label for="qingjia">请假类型：</label>
-        <select name="" id="qingjia" v-model='qingjia'>
+        <select name="" id="qingjia" v-model.lazy='qingjia'>
           <option value="1">事假</option>
           <option value="2">病假</option>
         </select>
       </div>
       <div>
         <label for="grade">所在班级：</label>
-        <input type="text" id="grade" v-model="grade" placeholder="输入班级，如：193班">
+        <input type="text" id="grade" v-model.lazy="grade" placeholder="输入班级，如：193班">
       </div>
       <div>
         <label for="content">请假内容：</label>
-        <input type="text" id="content" v-model="content" placeholder="输入请假理由，别太过分">
+        <input type="text" id="content" v-model.lazy="content" placeholder="输入请假理由，别太过分">
       </div>
       <input type="button" value="确认" id="confirm" @click="getHtml">
     </div>
@@ -122,7 +122,7 @@
         </div>
         <div class="block"></div>
         <div class="zero"></div>
-        <div class="re-confirm" >
+        <div class="re-confirm">
           <div class="img-wrapper">
             <img src="assets/imgs/refresh.svg" alt="">
           </div>
@@ -131,7 +131,7 @@
       </div>
     </div>
 
-  <footer v-show="!visible">免责声明：本网站所有内容仅供学习参考，使用本网站内容由此引起的一切后果均须自行承担责任，与本站无关。</footer>
+    <footer v-show="!visible">免责声明：本网站所有内容仅供学习参考，使用本网站内容由此引起的一切后果均须自行承担责任，与本站无关。有问题联系 kingpenguins#163.com(#换@)</footer>
   </div>
 </body>
 <script src="assets/js/index.js"></script>
