@@ -81,7 +81,7 @@ let vm = new Vue({
       this.visible = false
     },
     _formatTime() {
-      const prev = new Date(+new Date() + 3 * 2700 * 1000).toJSON().substr(0, 16).replace("T", " ").replace(/-0|-/g, '/')
+      const prev = new Date(+new Date() + 5 * 2700 * 1000).toJSON().substr(0, 16).replace("T", " ").replace(/-0|-/g, '/')
       const now = new Date(+new Date() + 8 * 3600 * 1000).toJSON().substr(0, 16).replace("T", " ")
       this.submitTime = prev
       this.approvalTime = now.substr(5, ).replace('-', '/')

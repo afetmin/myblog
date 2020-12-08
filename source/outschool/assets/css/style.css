@@ -17,11 +17,12 @@ header {
 #time {
   position: fixed;
   z-index: 999;
-  top:11px;
-  left:15px;
+  top: 11px;
+  left: 15px;
   font-size: 15px;
   color: #fff;
 }
+
 .container {
   position: relative;
   height: 100vh;
@@ -70,13 +71,30 @@ header {
 }
 
 .title-wrapper .via {
+  position: relative;
   display: inline-block;
   color: var(--via-color);
   font-size: 12px;
-  border: 1px solid var(--via-border-color);
-  border-radius: 3px;
+  /* border: 1px solid var(--via-border-color); */
+  /* border-radius: 3px; */
   padding: 3px;
   margin-left: 8px;
+}
+
+.title-wrapper .via:after {
+  content: "  ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  width: 200%;
+  height: 200%;
+  border: 1px solid var(--via-border-color);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scale(.5, .5);
+  transform: scale(.5, .5);
+  border-radius: 3px;
 }
 
 .reply-desc {
@@ -119,18 +137,18 @@ header {
 }
 
 .reply-desc .reply-content .reply-item .map-wrapper .h2 {
-  font-size: 16px;
+  font-size: 15px;
   padding: 5px;
 }
 
 .reply-desc .reply-content .reply-item .map-wrapper .h4 {
-  font-size: 16px;
+  font-size: 14px;
   padding: 2px 5px;
   color: var(--font-color);
 }
 
 .reply-desc .reply-content .reply-item .map-wrapper .h5 {
-  font-size: 14px;
+  font-size: 13px;
   padding: 2px 5px;
   color: rgb(183, 183, 183, 0.6);
 }
