@@ -43,3 +43,17 @@ BFC`(Block Formatting Context)`块级格式化上下文。具体解释见 [MDN](
 }
 ```
 
+## 图片自适应问题
+通过这样写css，可以直接获取图片高度，而不用等到图片加载出再获得。
+```css
+position: relative;
+width: 100%;
+height: 0;
+padding-top: 70%;
+transfrom-origin: top;
+background-size: cover;
+```
+通过 width:100%和 padding-top:70%控制图片的宽高比为10:7，当页面加载时，宽度确定了，高度也就确定了。
+
+图片宽度设置100%，页面加载时会存在高度塌陷的问题，可以使用padding－top来设置百分比值来实现自适应 padding-top = (图片的高度/图片的宽度)*100。
+
