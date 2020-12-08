@@ -75,7 +75,7 @@ let vm = new Vue({
   methods: {
     getHtml() {
       this._formatTime()
-      this.visible = true
+      this.visible = false
     },
     hideHtml() {
       this.visible = false
