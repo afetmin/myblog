@@ -65,12 +65,12 @@ let vm = new Vue({
     }
   },
   mounted() {
-    if (this.timer) {
-      clearInterval(this.timer)
-    }
-    this.timer = setInterval(() => {
-      this.currentTime = new Date(+new Date() + 8 * 3600 * 1000).toJSON().substr(0, 16).replace("T", " ")
-    }, 1000)
+    // if (this.timer) {
+    //   clearInterval(this.timer)
+    // }
+    // this.timer = setInterval(() => {
+    //   this.currentTime = new Date(+new Date() + 8 * 3600 * 1000).toJSON().substr(0, 16).replace("T", " ")
+    // }, 1000)
   },
   methods: {
     getHtml() {

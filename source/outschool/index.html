@@ -40,7 +40,7 @@
     <div class="container" v-show="visible">
       <div id="time"  v-show="!visible">{{currentTime | fmt}}</div>
       <div class="img-header">
-        <div class="img-wrapper" v-show="!visible">
+        <div class="img-wrapper" v-if="!visible">
           <img src="assets/imgs/header3.jpg" alt="">
         </div>
         <div class="header">
