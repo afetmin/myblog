@@ -8,15 +8,15 @@
 
 比如显示上传的预览图
 
-```jsx
+```html
 <body>
   <input
-    type='file'
+    type="file"
     multiple
-    id='fileInput'
-    onchange='previewFiles(this.files)'
+    id="fileInput"
+    onchange="previewFiles(this.files)"
   />
-  <ul id='preview'></ul>
+  <ul id="preview"></ul>
   <script>
     const inputEl = document.getElementById('fileInput') const ulEle =
     document.getElementById('preview') function previewFiles(files){" "}
@@ -41,7 +41,7 @@
 
 ![效果](/img/createObjectURL/1.png)
 
-> 在每次调用  `createObjectURL()`  方法时，都会创建一个新的 URL 对象，即使你已经用相同的对象作为参数创建过。当不再需要这些 URL 对象时，每个对象必须通过调用  `[URL.revokeObjectURL()](https://developer.mozilla.org/zh-CN/docs/Web/API/URL/revokeObjectURL)`  方法来释放。
+> 在每次调用  `createObjectURL()`  方法时，都会创建一个新的 URL 对象，即使你已经用相同的对象作为参数创建过。当不再需要这些 URL 对象时，每个对象必须通过调用  [URL.revokeObjectURL()](https://developer.mozilla.org/zh-CN/docs/Web/API/URL/revokeObjectURL) 方法来释放。
 
 浏览器在 document 卸载的时候，会自动释放它们，但是为了获得最佳性能和内存使用状况，你应该在安全的时机主动释放掉它们。
 
@@ -51,7 +51,7 @@
 
 还是上一个例子
 
-```jsx
+```js
 function useFileReaderPreivewFiles(files) {
   Array.from(files).forEach((file) => {
     const reader = new FileReader()
