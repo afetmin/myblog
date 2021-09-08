@@ -39,7 +39,7 @@
 
 来看看效果：
 
-![效果](createObjectURL%20ee1a8e74729a4157a8b97dfa97de1cdd/iShot2021-09-08_19.48.41.png)
+![效果](/img/createObjectURL/1.png)
 
 > 在每次调用  `createObjectURL()`  方法时，都会创建一个新的 URL 对象，即使你已经用相同的对象作为参数创建过。当不再需要这些 URL 对象时，每个对象必须通过调用  `[URL.revokeObjectURL()](https://developer.mozilla.org/zh-CN/docs/Web/API/URL/revokeObjectURL)`  方法来释放。
 
@@ -71,8 +71,8 @@ function useFileReaderPreivewFiles(files) {
 
 同样的效果:
 
-![iShot2021-09-08 20.09.35.png](createObjectURL%20ee1a8e74729a4157a8b97dfa97de1cdd/iShot2021-09-08_20.09.35.png)
+![效果图](/img/createObjectURL/2.png)
 
 来一张终极图：
 
-![data_url.jpg](createObjectURL%20ee1a8e74729a4157a8b97dfa97de1cdd/data_url.jpg)
+![data_url.jpg](/img/createObjectURL/3.jpg)
