@@ -97,3 +97,5 @@ function App() {
   )
 }
 ```
+
+React.lazy 要求函数需要返回一个 Promise。大致流程是，react.lazy 第一次渲染时会向外抛个异常 Promise，这个异常会被 Suspense 捕获到，Suspense 处理 Promise，Promise 执行成功后 Susponse 发起渲染，返回真正需要渲染的组件。
