@@ -1,7 +1,7 @@
 ---
 title: React的diff
 date: 2021-09-18 12:14:05
-tags: js,React
+tags: ["js", "react"]
 categories: 进阶
 ---
 
