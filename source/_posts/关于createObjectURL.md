@@ -8,6 +8,22 @@ tags: js
 
 > URL.createObjectURL() 静态方法会创建一个 DOMString，其中包含一个表示参数中给出的对象的 URL。这个 URL 的生命周期和创建它的窗口中的 document 绑定。这个新的 URL 对象表示指定的 File 对象或 Blob 对象。 — MDN
 
+## Blob URL/Object URL
+
+Blob URL/Object URL 是⼀种伪协议，允许 Blob 和 File 对象⽤作图像，下载⼆进制数据链接等的 URL
+源。在浏览器中，我们使⽤ URL.createObjectURL ⽅法来创建 Blob URL，该⽅法接收⼀个 Blob 对
+象，并为其创建⼀个唯⼀的 URL，其形式为 blob:<origin>/<uuid> ，对应的示例如下：
+blob:https://example.org/40a5fb5a-d56d-4a33-b4e2-0acf6a8e5f641
+浏览器内部为每个通过 URL.createObjectURL ⽣成的 URL 存储了⼀个 URL → Blob 映射。因此，此
+类 URL 较短，但可以访问 Blob 。⽣成的 URL 仅在当前⽂档打开的状态下才有效。它允许引⽤
+<img> 、 <a> 中的 Blob ，但如果你访问的 Blob URL 不再存在，则会从浏览器中收到 404 错误。
+上述的 Blob URL 看似很不错，但实际上它也有副作⽤。虽然存储了 URL → Blob 的映射，但 Blob 本
+身仍驻留在内存中，浏览器⽆法释放它。映射在⽂档卸载时⾃动清除，因此 Blob 对象随后被释放。但
+是，如果应⽤程序寿命很⻓，那不会很快发⽣。因此，如果我们创建⼀个 Blob URL，即使不再需要该
+Blob，它也会存在内存中。
+针对这个问题，我们可以调⽤ URL.revokeObjectURL(url) ⽅法，从内部映射中删除引⽤，从⽽允许
+删除 Blob（如果没有其他引⽤），并释放内存。
+
 ## createObjectURL 可以用来做什么
 
 比如显示上传的预览图
