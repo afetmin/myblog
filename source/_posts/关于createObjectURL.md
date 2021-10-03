@@ -14,7 +14,7 @@ Blob URL/Object URL 是⼀种伪协议，允许 Blob 和 File 对象⽤作图像
 源。在浏览器中，我们使⽤ URL.createObjectURL ⽅法来创建 Blob URL，该⽅法接收⼀个 Blob 对
 象，并为其创建⼀个唯⼀的 URL，其形式为 `blob:<origin>/<uuid>` ，对应的示例如下：
 
-```
+```js
 blob:https://example.org/40a5fb5a-d56d-4a33-b4e2-0acf6a8e5f641
 ```
 
